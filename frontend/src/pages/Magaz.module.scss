@@ -1,0 +1,108 @@
+$primary-color: #293239;
+$secondary-color: #d2e5e9;
+$background-light: #f7f9fa;
+$card-bg: #ffffff;
+$border-radius: 16px;
+$shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $background-light;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $primary-color;
+  padding: 20px 40px;
+  box-shadow: $shadow;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+.balance {
+  font-size: 18px;
+  font-weight: 600;
+  background: $secondary-color;
+  padding: 8px 15px;
+  border-radius: $border-radius;
+  color: $primary-color;
+}
+
+.boughtLink {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #ff9800;
+  padding: 10px 20px;
+  border-radius: $border-radius;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: #e68900;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+
+  button {
+    background: $primary-color;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: #ff9800;
+    }
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-area: auto;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.shopItem {
+  background: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}

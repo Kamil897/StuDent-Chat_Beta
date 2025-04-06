@@ -1,0 +1,63 @@
+.tabsContainer {
+   width: 100%;
+   max-width: 600px;
+   margin: 0 auto;
+   font-family: sans-serif;
+   @media (max-width: 640px) {
+
+   }
+ }
+ 
+ .tabsHeader {
+   display: flex;
+   justify-content: space-around;
+   border-bottom: 2px solid #000;
+   margin-bottom: 20px;
+ }
+ 
+ .tab {
+   position: relative;
+   // padding: 10px 20px;
+   padding-bottom: 10px;
+   background: none;
+   border: none;
+   cursor: pointer;
+   font-size: 16px;
+   color: #000;
+   transition: color 0.3s ease;
+ 
+   &:hover {
+     color: #D2E5E9;
+   }
+ }
+ 
+ .activeTab {
+   color: #e3eced;
+   font-weight: bold;
+ }
+ 
+ .underline {
+   position: absolute;
+   left: 0;
+   bottom: -2px;
+   width: 100%;
+   height: 3px;
+   background: #D2E5E9;
+   border-radius: 3px;
+ }
+ 
+ .tabContentWrapper {
+   min-height: 80px;
+ }
+ 
+ .tabContent {
+   font-size: 16px;
+   color: #e3eced;
+   text-align: center;
+   font-family: sans-serif;
+
+ }
+ 
+ // #D2E5E9 немного темный
+// #293239 темный
+// #e3eced сероватый

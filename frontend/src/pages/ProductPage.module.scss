@@ -1,0 +1,120 @@
+$primary-color: #293239;
+$secondary-color: #d2e5e9;
+$accent-color: #ff9800;
+$background-light: #f7f9fa;
+$border-radius: 16px;
+$shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $background-light;
+  padding: 20px;
+}
+
+.productCard {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  overflow: hidden;
+}
+
+.imageSection {
+  flex: 1;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.detailsSection {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: $primary-color;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buyButton {
+  background: $accent-color;
+  color: white;
+  font-size: 22px;
+  padding: 12px;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: darken($accent-color, 10%);
+  }
+}
+
+.disabledButton {
+  background: #ccc;
+  color: #666;
+  font-size: 22px;
+  padding: 12px;
+  border-radius: $border-radius;
+  cursor: not-allowed;
+}
+
+.backButton {
+  display: inline-block;
+  background: $primary-color;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: $border-radius;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}
+
+.notFound {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 50px;
+  color: $primary-color;
+}

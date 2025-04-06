@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "teacher" ALTER COLUMN "hire_date" SET DEFAULT CURRENT_TIMESTAMP;

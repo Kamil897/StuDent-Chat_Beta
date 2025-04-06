@@ -1,0 +1,13 @@
+.animatedSpan {
+  display: inline-block;
+  font-size: clamp(1.375rem, 1.094rem + 1.41vw, 2.5rem);
+  text-transform: uppercase;
+  max-width: 500px;
+  line-height: 1.2;
+  color: transparent;
+  letter-spacing: 1px;
+  background-image: url(/icons/wawe.svg);
+  background-size: 60px;
+  background-repeat: repeat-x;
+  background-position: left 0 bottom;
+}

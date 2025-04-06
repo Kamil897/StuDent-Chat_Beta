@@ -1,0 +1,82 @@
+.teacher__card {
+  display: flex;
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(145, 145, 145);
+  border-radius: 10px;
+
+  
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    .teacher__img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.teacher__card__text {
+  padding: 30px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.teacher__img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+  transition: 0.5s;
+  overflow: hidden;
+
+  &:hover {
+    filter: brightness(57%);
+  }
+}
+
+.card__text {
+  padding-top: 30px;
+  font-size: 17px;
+}
+
+.teacher__btn {
+  color: #fff;
+  font-size: 34px;
+  border: 2px;
+  text-align: center;
+  padding: 4px 14px;
+  border: 3px solid white;
+  border-radius: 10px;
+  width: 60%;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.teacher__btn__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher__img__div {
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    .teacher__btn {
+      transform: translateY(-100px);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .teacher__img {
+      filter: brightness(57%);
+    }
+  }
+}

@@ -1,0 +1,139 @@
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_section {
+  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game_over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game_over h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.game_over button {
+  font-size: 18px;
+  margin: 10px;
+  padding: 12px 25px;
+  background-color: #533846;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.game_over button:hover {
+  background-color: #7a5c61;
+  transform: scale(1.05); 
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.game_over button:active {
+  transform: scale(0.98); 
+}
+
+.game_over button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .game_over {
+    padding: 20px 40px;
+  }
+
+  .game_over h2 {
+    font-size: 40px;
+  }
+
+  .game_over button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+.menu {
+  margin: 100px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu h2 {
+  font-size: 60px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.menu button {
+  font-size: 20px;
+  margin: 15px;
+  padding: 12px 25px;
+  background-color: #533846;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu button:hover {
+  background-color: #7a5c61;
+  transform: scale(1.05); 
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.menu button:active {
+  transform: scale(0.98);
+}
+
+.menu button:focus {
+  outline: none; 
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    padding: 30px 40px;
+  }
+
+  .menu h2 {
+    font-size: 50px;
+  }
+
+  .menu button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}

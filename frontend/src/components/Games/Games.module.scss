@@ -1,0 +1,211 @@
+.container {
+  font-family: 'Soyuz Grotesk';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+
+.backButton {
+  display: flex;
+  height: 3em;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+ }
+ 
+ .backButton > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
+ }
+ 
+ .backButton:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+ }
+ 
+ .backButton:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  transform: translateY(-2px);
+ }
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  animation: gradient-text 2s ease infinite; 
+  color: #000000;
+
+}
+
+@keyframes gradient-text {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.gamesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+
+.gameCard {
+  background: linear-gradient(145deg, #485563, #2b2e4a);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gameCard:hover {
+  transform: translateY(-14px) scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.gameTitle {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #000000;
+  text-transform: capitalize;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.gameDescription {
+  font-size: 1.4rem;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.playLink {
+  text-decoration: none;
+}
+
+.playButton {
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: box-shadow 0.4s, transform 0.7s ease;
+}
+
+.playButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.disabledButton {
+  background-color: #555;
+  color: #000000;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .gamesGrid {
+    gap: 20px;
+  }
+
+  .gameCard {
+    padding: 20px;
+  }
+
+  .gameTitle {
+    font-size: 1.8rem;
+  }
+
+  .gameDescription {
+    font-size: 1.2rem;
+  }
+
+  .playButton {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .gamesGrid {
+    gap: 15px;
+  }
+
+  .gameCard {
+    padding: 15px;
+  }
+
+  .gameTitle {
+    font-size: 1.6rem;
+  }
+
+  .gameDescription {
+    font-size: 1.1rem;
+  }
+
+  .playButton {
+    font-size: 0.9rem;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .gamesGrid {
+    gap: 10px;
+  }
+
+  .gameCard {
+    padding: 10px;
+  }
+
+  .gameTitle {
+    font-size: 1.4rem;
+  }
+
+  .gameDescription {
+    font-size: 1rem;
+  }
+
+  .playButton {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+}

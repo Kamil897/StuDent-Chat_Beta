@@ -1,0 +1,55 @@
+.teacher {
+  padding: 20px;
+  background-color: #293239;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Фильтр-кнопки */
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.languageButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #007bff;
+    color: white;
+  }
+}
+
+.active {
+  background: #320d82;
+  color: white;
+  border-color: #320d82;
+}
+
+/* Карточки учителей */
+.teacherCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.noResults {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}

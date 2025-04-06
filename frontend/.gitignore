@@ -1,0 +1,27 @@
+
+.qodo
+
+node_modules
+
+.git/
+
+dist
+
+.vite/
+.cache/
+
+.log
+
+.env
+.env.local
+.env.*.local
+
+.vscode/
+.idea/
+*.swp
+
+.DS_Store
+
+Thumbs.db
+EOL
+>>>>>>> 38d7ce2 (2)

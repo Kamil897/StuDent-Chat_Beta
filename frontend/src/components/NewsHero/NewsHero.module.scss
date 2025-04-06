@@ -1,0 +1,30 @@
+.h1 {
+   font-size: 30px;
+   padding: 60px;
+   border: 1px solid #000000;
+   border-left:  none ;
+   border-right:  none ;
+      color: black;
+      
+
+
+}
+.df {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   color: black;
+
+}
+.nav {
+   display: flex;
+   gap: 30px;
+   flex-wrap: wrap;
+   color: black;
+
+   a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+   }
+}

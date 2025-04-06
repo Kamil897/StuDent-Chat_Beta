@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id                  Int      @id @default(autoincrement())
+  username            String   @unique
+  first_name          String
+  last_name           String
+  email               String   @unique
+  hashed_password     String // ✅ Храним только хеш пароля
+  hashed_refreshToken String?
+  is_creator          Boolean  @default(false)
+  is_active           Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  events              Event[]
+}
+
+model Event {
+  id              Int      @id @default(autoincrement())
+  admin_id        Int
+  title           String
+  location        String
+  date            DateTime
+  max_preschooler Int
+
+  admin         Admin               @relation(fields: [admin_id], references: [id])
+  registrations EventRegistration[]
+
+  @@map("event")
+}
+
+model Preschooler {
+  id                Int      @id @default(autoincrement())
+  first_name        String
+  last_name         String
+  registration_date DateTime
+  born_date         DateTime
+  gender            String
+
+  groupPreschoolers  GroupPreschooler[]
+  attendances        Attendance[]
+  eventRegistrations EventRegistration[]
+  parentRelations    ParentAndPreschool[]
+  TeacherFeedback    TeacherFeedback[]
+
+  @@map("preschooler")
+}
+
+model UserGameStats {
+  id     Int @id @default(autoincrement())
+  userId Int @unique
+  score  Int @default(0)
+
+  user Parent @relation(fields: [userId], references: [id])
+}
+
+model GroupPreschooler {
+  id             Int @id @default(autoincrement())
+  group_id       Int
+  preschooler_id Int
+
+  group       Group       @relation(fields: [group_id], references: [id])
+  preschooler Preschooler @relation(fields: [preschooler_id], references: [id])
+
+  @@map("group_preschooler")
+}
+
+model Group {
+  id         Int      @id @default(autoincrement())
+  name       String
+  min_age    Int
+  max_age    Int
+  created_at DateTime @default(now())
+
+  main_teacher_id Int?
+  main_teacher    Teacher? @relation("MainTeacher")
+
+  teachers          Teacher[]          @relation("GroupTeachers")
+  groupTeachers     GroupTeacher[]
+  groupPreschoolers GroupPreschooler[]
+}
+
+model Attendance {
+  id             Int       @id @default(autoincrement())
+  date           DateTime
+  check_in_time  DateTime
+  check_out_time DateTime?
+  preschooler_id Int
+
+  preschooler Preschooler @relation(fields: [preschooler_id], references: [id])
+
+  @@map("attendance")
+}
+
+model ParentAndPreschool {
+  id             Int    @id @default(autoincrement())
+  preschooler_id Int
+  parent_id      Int
+  relation       String
+
+  preschooler Preschooler @relation(fields: [preschooler_id], references: [id])
+  parent      Parent      @relation(fields: [parent_id], references: [id])
+
+  @@map("parent_and_preschool")
+}
+
+model Parent {
+  id                   Int     @id @default(autoincrement())
+  first_name           String
+  last_name            String
+  number               String
+  email                String  @unique
+  address              String?
+  hashed_password      String
+  hashed_refresh_token String?
+
+  parentRelations ParentAndPreschool[]
+  notifications   Notification[]
+  teacherReviews  TeacherReview[]
+  TeacherFeedback TeacherFeedback[]
+  UserGameStats   UserGameStats?
+
+  @@map("parents")
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  parent_id Int
+  message   String
+  sent_at   DateTime @default(now())
+
+  parent Parent @relation(fields: [parent_id], references: [id])
+
+  @@map("notifications")
+}
+
+model Teacher {
+  id                   Int      @id @default(autoincrement())
+  first_name           String
+  last_name            String
+  birthday             String
+  old_work             String?
+  phone_number         String
+  hire_date            DateTime @default(now())
+  email                String   @unique
+  gender               String
+  password             String
+  confirm_password     String
+  hashed_refresh_token String?
+  verification         String?  @unique
+  avg_rating           Int?
+  is_active            Boolean  @default(false)
+  is_main              Boolean  @default(false)
+
+  feedbacks     TeacherFeedback[]
+  reviews       TeacherReview[]
+  groupTeachers GroupTeacher[]
+  groups        Group[]           @relation("GroupTeachers")
+
+  main_group_id Int?   @unique
+  main_group    Group? @relation("MainTeacher", fields: [main_group_id], references: [id])
+
+  @@map("teacher")
+}
+
+model TeacherFeedback {
+  id             Int    @id @default(autoincrement())
+  teacher_id     Int
+  preschooler_id Int
+  parent_id      Int
+  title          String
+  feedback       String
+
+  teacher     Teacher     @relation(fields: [teacher_id], references: [id])
+  preschooler Preschooler @relation(fields: [preschooler_id], references: [id])
+  parent      Parent      @relation(fields: [parent_id], references: [id])
+
+  @@map("teacher_feedback")
+}
+
+model TeacherReview {
+  id         Int      @id @default(autoincrement())
+  teacher_id Int
+  parent_id  Int
+  message    String
+  rating     Int
+  written_at DateTime @default(now())
+
+  teacher Teacher @relation(fields: [teacher_id], references: [id])
+  parent  Parent  @relation(fields: [parent_id], references: [id])
+
+  @@map("teacher_review")
+}
+
+model EventRegistration {
+  id                Int      @id @default(autoincrement())
+  event_id          Int
+  preschooler_id    Int
+  registration_date DateTime @default(now())
+
+  event       Event       @relation(fields: [event_id], references: [id])
+  preschooler Preschooler @relation(fields: [preschooler_id], references: [id])
+
+  @@map("event_registration")
+}
+
+model GroupTeacher {
+  id         Int     @id @default(autoincrement())
+  group_id   Int
+  teacher_id Int
+  is_main    Boolean
+
+  group   Group   @relation(fields: [group_id], references: [id], onDelete: Cascade)
+  teacher Teacher @relation(fields: [teacher_id], references: [id], onDelete: Cascade)
+
+  @@unique([group_id, teacher_id])
+}

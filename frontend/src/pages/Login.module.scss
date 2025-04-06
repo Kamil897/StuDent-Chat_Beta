@@ -1,0 +1,66 @@
+.h2 {
+   text-align: center;
+   font-size: 30px;
+}
+.div {
+   padding: 60px;
+}
+.form {
+   margin: 0 auto;   
+
+  padding-top: 50px;
+   max-width: 660px;
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 30px;
+   p {
+     color: gray;
+     font-size: 15px;
+   }
+
+   @media (max-width: 700px) {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 0 auto;
+      }
+ }
+
+ .input {
+   max-width: 320px;
+   width: 100%;
+   height: 40px;
+   background: #f4f4f4;
+   border: none;
+   border-radius: 3px;
+   outline: none;
+   transition: 0.5s;
+   border: 1px solid transparent;
+ 
+   &:focus {
+     border-color: gray;
+   }
+ }
+
+ .btn {
+   background-color: #3e6ae1;
+   padding: 10px 64px;
+   border-radius: 5px;
+   font-size: 14px;
+   font-weight: bold;
+   color: #fff;
+   border: none;
+   margin: 40px auto;   
+   max-width: 320px;
+   width: 100%;
+   display: block;
+   transition: 0.4s;
+   &:hover {
+      background-color: #507fff;
+   }
+}
+
+.link {
+   text-align: center;
+   display: block;
+   margin-top: 30px;
+}

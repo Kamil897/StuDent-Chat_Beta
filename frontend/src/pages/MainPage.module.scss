@@ -1,0 +1,50 @@
+.sects {
+   display: flex;
+}
+.section {
+   max-width: 600px;
+   width: 100%;
+   display: flex;
+   background-color: #f0f0f0;
+   flex-direction: column;
+   align-items: start;
+   padding: 50px;
+   gap: 30px;
+  .groups {
+   padding: 10px 20px;
+   // border: 1px solid gray;
+   border-radius: 8px;
+   width: 100%;
+   background-color: rgb(209, 205, 205);
+    transition: 0.4s;
+   &:hover {
+   background-color: rgb(233, 229, 229);
+       
+   }
+  }
+}
+.main {
+   display: flex;
+   gap: 20px;
+   padding: 20px;
+   align-items: center;
+   b {
+      color: black;
+   }
+   p {
+      color: gray;
+   }
+}
+.pfp {
+   border-radius: 50%;
+   width: 180px;
+   box-shadow: 0 0 20px rgb(151, 151, 151);
+   transition: 0.4s;
+   &:hover {
+   box-shadow: 0 0 20px black;
+
+   }
+}
+.username {
+   padding-bottom: 20px;
+}

@@ -1,0 +1,200 @@
+.tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.SelectionMenu {
+  background-color: #ffffff75;
+  padding: 100px;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.SelectionMenu h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.symbolButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.symbolButtons p {
+  margin: 15px;
+  font-size: 42px;
+}
+
+.symbolButton {
+  padding: 10px 20px;
+  font-size: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, font-size 0.5s;
+}
+
+.symbolButton:hover {
+  font-size: 65px;
+  color: white;
+  background-color: #45a049;
+}
+
+.turn-indicator {
+  margin-bottom: 25px;
+}
+
+.turn-message {
+  font-size: 22px;
+}
+
+.turn-message.win {
+  color: #27ae60;
+  animation: fadeIn 0.5s ease, scaleUp 1s ease;
+}
+
+.turn-message.lose {
+  color: #e74c3c;
+  animation: fadeIn 0.5s ease, shake 0.5s ease;
+}
+
+.turn-message.draw {
+  color: #f39c12;
+  animation: fadeIn 0.5s ease;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.square-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 52px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.square.occupied {
+  animation: fadeIn 0.5s ease;
+}
+
+.symbol {
+  animation: popIn 0.5s ease;
+}
+
+.symbol.x {
+  color: #ff4757;
+}
+
+.symbol.o {
+  color: #1e90ff;
+}
+
+.reset-button {
+  color: white;
+  border-radius: 12px;
+  background-color: #4d2a96;
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.reset-button:hover {
+  background-color: #6b38ce;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgba(255, 255, 255, 0.585);
+  padding: 30px;
+  border-radius: 15px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.menu-header {
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.menu-button {
+  font-size: 18px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-button:hover {
+  color: white;
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+.menu-button:active {
+  color: white;
+  background-color: #3e8e41;
+}
+
+.centeredMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}

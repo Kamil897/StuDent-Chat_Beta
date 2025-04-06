@@ -1,0 +1,95 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.infoBar {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  margin-bottom: 10px;
+}
+
+.score, .timer {
+  font-size: 18px;
+}
+
+.menuButton {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.menuButton:hover {
+  background-color: #666;
+}
+
+.board {
+  position: relative;
+  background-color: #111;
+  border: 2px solid #fff;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #333;
+}
+
+.snake {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.food {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.menu {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.menu h1 {
+  margin: 10px 0;
+}
+
+.menu button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #444;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.menu button:hover {
+  background-color: #666;
+}
