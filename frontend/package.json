@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "proxy": "http://localhost:5173",
   "scripts": {
+    "dev": "vite",
+    "build:frontend": "vite build",
+    "build:backend": "nest build",
+    "build": "npm run build:frontend && npm run build:backend",
+    "preview": "vite preview",
     "start": "node dist/main.js",
     "start:dev": "nest start --watch",
-    "build": "nest build",
-    "dev": "vite",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
+
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
