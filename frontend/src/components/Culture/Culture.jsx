@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "../Society/Society.module.scss";
 import FlowingMenu from '../FlowingMenu/FlowingMenu.jsx';
 
@@ -24,6 +24,77 @@ const Culture = () => {
   const demoItems = [
     { link: 'https://inha.uz/ru/glavnaya/', text: 'INHA', image: 'https://inha.uz/wp-content/uploads/2021/01/The_panoramic_view_of_IUT-1536x612.jpg' },
   ];
+
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const [like, setLike] = useState(1752);
+  const [liked, setLiked] = useState(false)
+  const [saved, setSaved] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState('');
+
+  const toggleLike = () => {
+   if (liked) {
+      setLike(like - 1); 
+   } else {
+      setLike(like + 1); 
+   }
+   setLiked(!liked); 
+};
+
+  const toggleSave = () => setSaved(!saved);
+
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    if (comment) {
+      setComments([...comments, comment]);
+      setComment('');
+    }
+  };
+
+  const shareToSocialMedia = (platform) => {
+     const url = encodeURIComponent(window.location.href);
+     const text = encodeURIComponent(p);
+     const image = encodeURIComponent(ImgSrc);
+
+     let shareUrl = '';
+
+     switch (platform) {
+        case 'facebook':
+           shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`;
+           break;
+        case 'twitter':
+           shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+           break;
+        case 'whatsapp':
+           shareUrl = `https://wa.me/?text=${text} ${url}`;
+           break;
+        case 'linkedin':
+           shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}&summary=${text}`;
+           break;
+        case 'telegram':
+           shareUrl = `https://t.me/share/url?url=${url}&text=${text}`;
+           break;
+        default:
+           return;
+     }
+
+     window.open(shareUrl, '_blank', 'width=600,height=400');
+     setShowShareOptions(false);
+  };
+
+
+  const handleShare = () => {
+     if (navigator.share) {
+       navigator.share({
+         title: 'Новость',
+         text: 'Посмотрите эту новость!',
+         url: window.location.href,
+       });
+     } else {
+       alert('Функция "Поделиться" не поддерживается.');
+     }
+   };
+   
 
   return (
     <>

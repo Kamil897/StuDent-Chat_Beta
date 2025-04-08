@@ -63,7 +63,7 @@
 
 .gamesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   width: 100%;
   max-width: 1400px;
@@ -71,6 +71,7 @@
 }
 
 .gameCard {
+  max-width: 350px;
   background: linear-gradient(145deg, #485563, #2b2e4a);
   border-radius: 20px;
   padding: 25px;
@@ -87,7 +88,7 @@
 }
 
 .gameTitle {
-  font-size: 2rem;
+  font-size: 1.9rem;
   margin-bottom: 15px;
   color: #000000;
   text-transform: capitalize;

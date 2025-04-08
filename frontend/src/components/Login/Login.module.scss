@@ -1,68 +1,178 @@
-.h2 {
-   text-align: center;
-   font-size: 30px;
-}
-.div {
-   padding: 60px;
-}
-.form {
-   margin: 0 auto;   
+// .h2 {
+//    text-align: center;
+//    font-size: 30px;
+// }
+// .div {
+//    padding: 60px;
+// }
+// .form {
+//    margin: 0 auto;   
 
-  padding-top: 50px;
-   max-width: 660px;
-   width: 100%;
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 30px;
-   p {
-     color: gray;
-     font-size: 15px;
-   }
+//   padding-top: 50px;
+//    max-width: 660px;
+//    width: 100%;
+//    display: grid;
+//    grid-template-columns: repeat(2, 1fr);
+//    gap: 30px;
+//    p {
+//      color: gray;
+//      font-size: 15px;
+//    }
 
-   @media (max-width: 700px) {
-      grid-template-columns: repeat(1, 1fr);
-      margin: 0 auto;
-      }
- }
+//    @media (max-width: 700px) {
+//       grid-template-columns: repeat(1, 1fr);
+//       margin: 0 auto;
+//       }
+//  }
 
- .input {
-   max-width: 320px;
-   width: 100%;
-   height: 40px;
-   background: #f4f4f4;
-   border: none;
-   border-radius: 3px;
-   outline: none;
-   transition: 0.5s;
-   border: 1px solid transparent;
-   padding: 5px;
+//  .input {
+//    max-width: 320px;
+//    width: 100%;
+//    height: 40px;
+//    background: #f4f4f4;
+//    border: none;
+//    border-radius: 3px;
+//    outline: none;
+//    transition: 0.5s;
+//    border: 1px solid transparent;
+//    padding: 5px;
 
  
-   &:focus {
-     border-color: gray;
+//    &:focus {
+//      border-color: gray;
+//    }
+//  }
+
+//  .btn {
+//    background-color: #3e6ae1;
+//    padding: 10px 64px;
+//    border-radius: 5px;
+//    font-size: 14px;
+//    font-weight: bold;
+//    color: #fff;
+//    border: none;
+//    margin: 40px auto;   
+//    max-width: 320px;
+//    width: 100%;
+//    display: block;
+//    transition: 0.4s;
+//    &:hover {
+//       background-color: #507fff;
+//    }
+// }
+
+// .link {
+//    text-align: center;
+//    display: block;
+//    margin-top: 30px;
+// }
+
+.formWrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   background-color: #ffffff;
+   padding: 30px;
+   width: 650px;
+   border-radius: 20px;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   margin: 100px auto;
+ }
+ 
+ .form {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+ }
+ 
+ .title {
+   text-align: center;
+   margin-bottom: 10px;
+   font-size: 24px;
+   font-weight: 600;
+   color: #151717;
+ }
+ 
+ .flexColumn {
+   display: flex;
+   flex-direction: column;
+ 
+   label {
+     color: #151717;
+     font-weight: 600;
    }
  }
-
- .btn {
-   background-color: #3e6ae1;
-   padding: 10px 64px;
-   border-radius: 5px;
-   font-size: 14px;
-   font-weight: bold;
-   color: #fff;
-   border: none;
-   margin: 40px auto;   
-   max-width: 320px;
-   width: 100%;
-   display: block;
-   transition: 0.4s;
-   &:hover {
-      background-color: #507fff;
+ 
+ .inputForm {
+   border: 1.5px solid #ecedec;
+   border-radius: 10px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   padding-left: 10px;
+   transition: 0.2s ease-in-out;
+ 
+   svg {
+     margin-right: 10px;
+     fill: #888;
    }
-}
-
-.link {
+ 
+   &:focus-within {
+     border: 1.5px solid #2d79f3;
+   }
+ }
+ 
+ .input {
+   margin-left: 10px;
+   border-radius: 10px;
+   border: none;
+   width: 100%;
+   height: 100%;
+   font-size: 1rem;
+ 
+   &:focus {
+     outline: none;
+   }
+ 
+   &::placeholder {
+     font-family: inherit;
+   }
+ }
+ 
+ .button {
+   margin: 20px 0 10px 0;
+   background-color: #151717;
+   border: none;
+   color: white;
+   font-size: 15px;
+   font-weight: 500;
+   border-radius: 10px;
+   height: 50px;
+   width: 100%;
+   cursor: pointer;
+ 
+   &:hover {
+     background-color: #2d2d2d;
+   }
+ }
+ 
+ .text {
    text-align: center;
-   display: block;
-   margin-top: 30px;
-}
+   color: black;
+   font-size: 14px;
+   margin: 5px 0;
+ }
+ 
+ .link {
+   font-size: 14px;
+   margin-left: 5px;
+   color: #2d79f3;
+   font-weight: 500;
+   cursor: pointer;
+   text-decoration: none;
+ 
+   &:hover {
+     text-decoration: underline;
+   }
+ }
+ 

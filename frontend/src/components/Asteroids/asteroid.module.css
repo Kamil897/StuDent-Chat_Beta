@@ -3,31 +3,274 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: black;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .title {
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+.gameControlBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.gameControlBar button {
+  padding: 8px 16px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: white;
-  font-size: 24px;
-  margin-bottom: 10px;
+  background: linear-gradient(135deg, #444, #222);
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.gameControlBar button:hover {
+  background: linear-gradient(135deg, #555, #333);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.settingsToggle {
+  background: rgba(34, 34, 34, 0.8);
+  color: white;
+  padding: 8px 12px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settingsToggle:hover {
+  background: rgba(50, 50, 50, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .canvas {
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+}
+
+.controls {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
   border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 300px;
+}
+
+
+@media (min-width: 768px) {
+  .controls {
+    position: absolute;
+    top: 70px;
+    right: 50%;
+    transform: translateX(50%);
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .controls {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+  }
+}
+
+.controls label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.controls input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+}
+
+.controls input[type="color"] {
+  width: 50px;
+  height: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.controls button {
+  padding: 8px 16px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: white;
+  background: linear-gradient(135deg, #444, #222);
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, #555, #333);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .restartButton {
-  margin-top: 20px;
+  margin-top: 1rem;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   color: white;
-  background-color: #444;
-  border: none;
+  background: linear-gradient(135deg, #444, #222);
+  border: 2px solid white;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .restartButton:hover {
-  background-color: #666;
+  background: linear-gradient(135deg, #555, #333);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobileControls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.joystick {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: clamp(60px, 15vw, 100px);
+  height: clamp(60px, 15vw, 100px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.1s ease;
+}
+
+.joystick:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.shootButton {
+  background: linear-gradient(to right, crimson, darkred);
+  color: white;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  width: clamp(70px, 18vw, 120px);
+  height: clamp(60px, 15vw, 100px);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+  transition: transform 0.1s ease;
+}
+
+.shootButton:active {
+  transform: scale(0.95);
+  background: linear-gradient(to right, #ff3c3c, #a60000);
+}
+
+
+@media (min-width: 768px) {
+  .mobileControls {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .canvas {
+    width: clamp(300px, 90vw, 800px);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    margin-top: 0.5rem;
+  }
+  
+  .canvas {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mobileControls {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+  }
+  
+  .canvas {
+    max-height: 65vh;
+    width: auto;
+  }
+  
+  .mobileControls {
+    position: absolute;
+    bottom: 10px;
+    margin-top: 0;
+  }
 }

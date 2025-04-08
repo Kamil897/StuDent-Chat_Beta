@@ -1,10 +1,10 @@
 .h1 {
    font-size: 30px;
    padding: 60px;
-   border: 1px solid #000000;
+   border: 1px solid #D2E5E9;
    border-left:  none ;
    border-right:  none ;
-      color: black;
+      color: #D2E5E9;
       
 
 
@@ -14,7 +14,7 @@
    justify-content: space-between;
    align-items: center;
    flex-wrap: wrap;
-   color: black;
+   color: #D2E5E9;
 
 }
 .nav {
@@ -26,5 +26,9 @@
    a {
       color: rgb(0, 0, 0);
       text-decoration: none;
+      transition: 0.4s;
+      &:hover {
+         color: #D2E5E9;
+      }
    }
 }
