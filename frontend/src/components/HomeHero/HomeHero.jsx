@@ -8,6 +8,7 @@ import SpotlightCard from '../SpotlightCard/SpotlightCard.jsx';
 // import FlowingMenu from '../FlowingMenu/FlowingMenu.jsx';
 import TiltedCard from '../TiltedCard/TiltedCard.jsx';
 import Tabs from '../Tabs/Tabs.jsx';
+import TextCursor from '../TextCursor/TextCursor.jsx';
 
 const HomeHero = () => {
   const tooltipRef = useRef(null);
@@ -105,7 +106,19 @@ const HomeHero = () => {
     <>
 
       <section className={s.welcome_section}>
-        <Clouds />
+        {/* <Clouds /> */}
+        <h1>Student Chat</h1>
+        <h3>место помощи студентам.</h3>
+        <TextCursor
+  text="Sdct - целое будущее!"
+  delay={0.01}
+  spacing={200}
+  followMouseDirection={true}
+  randomFloat={true}
+  exitDuration={0.3}
+  removalInterval={40}
+  maxPoints={10}
+/>
       </section>
       
 

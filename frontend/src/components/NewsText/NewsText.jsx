@@ -155,8 +155,7 @@ const NewsText = ({
    const [like, setLike] = useState(1752);
    const [liked, setLiked] = useState(false);
    const [saved, setSaved] = useState(false);
-   const [comments, setComments] = useState([]);
-   const [comment, setComment] = useState('');
+
    const [expanded, setExpanded] = useState(false); // состояние для "Читать дальше"
 
    const words = p.split(' ');
@@ -181,13 +180,6 @@ const NewsText = ({
 
    const toggleSave = () => setSaved(!saved);
 
-   const handleCommentSubmit = (e) => {
-      e.preventDefault();
-      if (comment) {
-         setComments([...comments, comment]);
-         setComment('');
-      }
-   };
 
    const shareToSocialMedia = (platform) => {
       const url = encodeURIComponent(window.location.href);
@@ -236,7 +228,7 @@ const NewsText = ({
                   {liked ? '❤️' : '🤍'} {like}
                </button>
                <button onClick={toggleSave}>
-                  {saved ? '💾 Сохранено' : '💾 Сохранить'}
+                  {saved ? '💾Сохранено' : '💾 Сохранить'}
                </button>
                <button onClick={() => setShowShareOptions(!showShareOptions)}>
                   🔄 Поделиться
@@ -251,21 +243,7 @@ const NewsText = ({
                </div>
             )}
 
-            <form onSubmit={handleCommentSubmit}>
-               <input
-                  type="text"
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  placeholder="Добавить комментарий..."
-               />
-               <button type="submit">Отправить</button>
-            </form>
-
-            <div className={s.comments}>
-               {comments.map((cmt, index) => (
-                  <p key={index}>{cmt}</p>
-               ))}
-            </div>
+            
          </div>
       </div>
    );
