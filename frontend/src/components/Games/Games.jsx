@@ -10,8 +10,8 @@ const games = [
   { id: 4, name: 'Тир', description: 'Убейте шайтанов', link: '/Tir' },
   { id: 5, name: 'Лабиринт знаний', description: 'Отвечайте на школные вопросы', link: '/KnowledgeMaze' },
   { id: 6, name: 'Математический бой', description: 'Решайте примеры и атакуйте соперника', link: "/MathBattle" },
-  { id: 7, name: 'Packman', description: 'Скоро в игре.', link: null },
-  { id: 8, name: 'Doom', description: 'Скоро в игре.', link: null },
+  { id: 7, name: 'Камень, ножницы, бумага', description: ' 1. 2. 3....', link: '/don' },
+  { id: 8, name: 'Space Inviders', description: 'ХЗ что за игра, не играл И да где моя примия босс?', link: '/inviders' },
   { id: 9, name: 'Ping Pong', description:'play ping pong with ai', link:'/pingpong'},
   { id: 10, name: 'meteors', description:'Try to survive in rain of meteors', link:'/meteors'}
 ];
