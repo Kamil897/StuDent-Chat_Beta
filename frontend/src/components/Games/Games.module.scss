@@ -210,3 +210,88 @@
     padding: 10px 20px;
   }
 }
+
+
+
+
+.container {
+  padding: 20px;
+}
+
+.backButton {
+  margin-bottom: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.gamesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gameCard {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gameImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.gameInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: black;
+}
+
+.infoButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #D2E5E9;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 300px;
+  color: black;
+}
+
+.closeButton {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background: #293239;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+ 

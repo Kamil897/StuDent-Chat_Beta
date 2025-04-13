@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import s from "./TeacherHero.module.scss";
 import TeacherCard from "../TeacherCard/TeacherCard";
-import { FaFlag, FaGlobeAmericas, FaGlobeEurope, FaGlobe } from "react-icons/fa";
 
-const TeacherHero = ({ langName }) => {
+const TeacherHero = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("Все");
 
   const languages = [
@@ -13,22 +12,6 @@ const TeacherHero = ({ langName }) => {
     { id: "german", name: "Немецкий" },
     { id: "french", name: "Французский" },
   ];
-
-  const getIcon = (langName) => {
-    switch (langName.toLowerCase()) {
-      case "русский":
-        return <FaFlag />;
-      case "английский":
-        return <FaGlobeAmericas />;
-      case "французский":
-        return <FaGlobeEurope />;
-      case "немецкий":
-        return <FaGlobe />;
-      default:
-        return <FaGlobe />;
-    }
-  };
-  
 
   const teachers = [
     { id: 1, name: "Иван Иванов", teaches: ["Русский"] },
@@ -49,15 +32,15 @@ const TeacherHero = ({ langName }) => {
       <div className={s.container}>
         {/* Фильтр-кнопки */}
         <div className={s.filter}>
-        {languages.map((lang) => (
+          {languages.map((language) => (
             <button
-              key={lang.id}
+              key={language.id}
               className={`${s.languageButton} ${
-                selectedLanguage === lang.name ? s.active : ""
+                selectedLanguage === language.name ? s.active : ""
               }`}
-              onClick={() => setSelectedLanguage(lang.name)}
+              onClick={() => setSelectedLanguage(language.name)}
             >
-              {getIcon(lang.name)} {lang.name}
+              {language.name}
             </button>
           ))}
         </div>
@@ -66,9 +49,7 @@ const TeacherHero = ({ langName }) => {
         <div className={s.teacherCards}>
           {filteredTeachers.length > 0 ? (
             filteredTeachers.map((teacher) => (
-              <div key={teacher.id} className={s.fadeIn}>
-                <TeacherCard name={teacher.name} languages={teacher.teaches} />
-              </div>
+              <TeacherCard key={teacher.id} name={teacher.name} languages={teacher.teaches} />
             ))
           ) : (
             <p className={s.noResults}>Учителей с таким языком нет...</p>

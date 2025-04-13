@@ -8,8 +8,6 @@ import { Analytics } from "@vercel/analytics/react";
 import ProductPage from './pages/ProductPage';
 import Doom from './components/Asteroids/Asteroids';
 import PongNeon from './components/PingPong/Ping';
-import Don from './components/Don/Don'
-import Inviders from './components/Space/SpaceInviders';
 
 const Home = lazy(() => import('./pages/Home'));
 const Bought = lazy(() => import('./pages/Bought'));
@@ -46,7 +44,7 @@ const App = () => {
   const isNotFoundPage = ![
     "/", "/ChatGroup", "/Teacher", "/Register", "/Login", "/MainPage",
     "/Society", "/Tech", "/Culture", "/TicTacToe", "/Snake", "/flappybird",
-    "/Games", "/Tetris", "/Tir", "/Shop", "/news", "/bought", "/KnowledgeMaze", "/MathBattle", "/don", "/inviders"
+    "/Games", "/Tetris", "/Tir", "/Shop", "/news", "/bought", "/KnowledgeMaze", "/MathBattle"
   ].includes(location.pathname);
 
   return (
@@ -79,8 +77,6 @@ const App = () => {
           <Route path='/product/:id' element={<ProductPage/>}/>
           <Route path='/meteors' element={<Doom/>}/>
           <Route path='/pingpong' element={<PongNeon />} />
-          <Route path='/don' element={ <Don/>} />
-          <Route path='/inviders' element={<Inviders/>}/>
         </Routes>
       </Suspense>
       {!isNotFoundPage && location.pathname !== "/ChatGroup" && <Footer />}
