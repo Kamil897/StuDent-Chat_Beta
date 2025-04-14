@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import styles from './Space.module.css';
+import s from './Space.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const PLAYER_WIDTH = 40;
@@ -122,8 +122,6 @@ function Invider() {
       animationId = requestAnimationFrame(gameLoop);
     };
 
-    gameLoop();
-
     const keyDown = e => {
       keys[e.key] = true;
       if (e.key === ' ') {
@@ -136,8 +134,6 @@ function Invider() {
       }
     };
 
-    
-
     const keyUp = e => {
       keys[e.key] = false;
     };
@@ -148,7 +144,8 @@ function Invider() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-    
+
+    gameLoop();
 
     return () => {
       window.removeEventListener('keydown', keyDown);
@@ -160,35 +157,50 @@ function Invider() {
   const restartGame = () => {
     window.location.reload();
   };
+
   const simulateKey = (key, pressed = true) => {
     const event = new KeyboardEvent(pressed ? 'keydown' : 'keyup', { key });
     window.dispatchEvent(event);
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={s.wrapper}>
       {gameState !== 'playing' && (
-        <div className={styles.overlay}>
-          <h1 className={styles.title}>
+        <div className={s.overlay}>
+          <h1 className={s.title}>
             {gameState === 'win' ? 'You Win! 🎉' : 'Game Over 💀'}
-            <button className={s.backButton} onClick={() => navigate('/Games')}>
-              <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
-              <span>Назад</span>
-            </button>
           </h1>
-          <button onClick={restartGame} className={styles.button}>
+          <button className={s.backButton} onClick={() => navigate('/Games')}>
+            ← Назад
+          </button>
+          <button onClick={restartGame} className={s.button}>
             Restart
           </button>
         </div>
       )}
-      <canvas ref={canvasRef} className={styles.canvas} />
 
-      <div className={styles.controls}>
-        <button onTouchStart={() => simulateKey('ArrowLeft', true)} onTouchEnd={() => simulateKey('ArrowLeft', false)}>◀️</button>
-        <button onTouchStart={() => simulateKey(' ')} className={styles.fire}>🔥</button>
-        <button onTouchStart={() => simulateKey('ArrowRight', true)} onTouchEnd={() => simulateKey('ArrowRight', false)}>▶️</button>
+      <canvas ref={canvasRef} className={s.canvas} />
+
+      <div className={s.controls}>
+        <button
+          onTouchStart={() => simulateKey('ArrowLeft', true)}
+          onTouchEnd={() => simulateKey('ArrowLeft', false)}
+        >
+          ◀️
+        </button>
+        <button
+          onTouchStart={() => simulateKey(' ')}
+          className={s.fire}
+        >
+          🔥
+        </button>
+        <button
+          onTouchStart={() => simulateKey('ArrowRight', true)}
+          onTouchEnd={() => simulateKey('ArrowRight', false)}
+        >
+          ▶️
+        </button>
       </div>
-
     </div>
   );
 }

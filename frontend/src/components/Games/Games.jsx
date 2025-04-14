@@ -1,61 +1,9 @@
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import s from './Games.module.scss';
-// import { Link } from 'react-router-dom';
-
-// const games = [
-//   { id: 1, name: 'Flappy Bird', description: 'Забытая игра', link: '/flappybird' },
-//   { id: 2, name: 'Snake', description: 'Змейка', link: '/Snake' },
-//   { id: 3, name: 'Tic Tac', description: 'Крестики-Нолики', link: '/TicTacToe' },
-//   { id: 4, name: 'Тир', description: 'Убейте шайтанов', link: '/Tir' },
-//   { id: 5, name: 'Лабиринт знаний', description: 'Отвечайте на школные вопросы', link: '/KnowledgeMaze' },
-//   { id: 6, name: 'Математический бой', description: 'Решайте примеры и атакуйте соперника', link: "/MathBattle" },
-//   { id: 7, name: 'Packman', description: 'Скоро в игре.', link: null },
-//   { id: 8, name: 'Doom', description: 'Скоро в игре.', link: null },
-//   { id: 9, name: 'Ping Pong', description:'play ping pong with ai', link:'/pingpong'},
-//   { id: 10, name: 'meteors', description:'Try to survive in rain of meteors', link:'/meteors'}
-// ];
-
-//   const Games = () => {
-//     const navigate = useNavigate();
-
-//     return (
-//       <div className={s.container}>
-//         <button className={s.backButton} onClick={() => navigate('/MainPage')}>
-//           <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
-//           <span>Назад</span>
-//         </button>
-        
-//         <h1 className={s.title}>Игры</h1>
-//         <div className={s.gamesGrid}>
-//           {games.map((game) => (
-//             <div key={game.id} className={s.gameCard}>
-//               <h2 className={s.gameTitle}>{game.name}</h2>
-//               <p className={s.gameDescription}>{game.description}</p>
-//               {game.link ? (
-//                 <Link to={game.link} className={s.playLink}>
-//                   <button className={s.playButton}>Играть</button>
-//                 </Link>
-//               ) : (
-//                 <button className={s.disabledButton} disabled>Скоро</button>
-//               )}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     );
-//   };
-
-//   export default Games;
-
-
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Info } from 'lucide-react'; 
 import s from './Games.module.scss';
+
 
 const games = [
   { id: 1,
@@ -70,6 +18,52 @@ const games = [
   { id: 4, name: 'Тир', description: 'Убейте шайтанов', link: '/Tir', image: '/images/tir.jpg' },
   { id: 5, name: 'Лабиринт знаний', description: 'Отвечайте на школьные вопросы', link: '/KnowledgeMaze', image: '/images/maze.jpg' },
   { id: 6, name: 'Математический бой', description: 'Решайте примеры и атакуйте соперника', link: '/MathBattle', image: '/images/mathbattle.jpg' },
+  { id: 2, 
+    name: 'Snake', 
+    description: 'Змейка', 
+    link: '/Snake', 
+    image: 'https://play-lh.googleusercontent.com/xIDxenYWwwKdyDF2eYzSYhKUMVejc0AhOR64mpcY4keuwXP3UeI7yN1SnIJT4tpjgc4' 
+  },
+  { id: 3, 
+    name: 'Tic Tac', 
+    description: 'Крестики-Нолики', 
+    link: '/TicTacToe', 
+    image: 'https://cdn.pixabay.com/photo/2013/07/12/15/56/tic-tac-toe-150614_960_720.png' 
+  },
+  { id: 4, 
+    name: 'Тир', 
+    description: 'Убейте шайтанов', 
+    link: '/Tir', 
+    image: 'https://storage.needpix.com/rsynced_images/archery-152912_1280.png' },
+  { id: 5, 
+    name: 'Лабиринт знаний', 
+    description: 'Отвечайте на школьные вопросы', 
+    link: '/KnowledgeMaze', 
+    image: '/images/maze.jpg' },
+  { id: 6, 
+    name: 'Математический бой', 
+    description: 'Решайте примеры и атакуйте соперника', 
+    link: '/MathBattle',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3mQCkWcLzOW-frEhIZ22Elqm6ljJMHzSgNj8hPhM3fjuZg60n7IIQc682tQmMg8umDkAalQ_SJjFrirFhqbPpsXFcsUgw2QwrXs7rQxECOP_cd2TMXOUFPpwKO6stMfeFcBCP_Mwy14-nsQwL60o-TIe_lAWYD3-s1qQ-4vmc68Omv7jkQFofX8hC/s1600/formula.jpg' },
+  { id: 7, 
+    name: 'Камень, ножницы, бумага', 
+    description: ' 1. 2. 3....', 
+    link: '/don',
+    image: 'https://habrastorage.org/r/w1560/getpro/geektimes/post_images/28e/2a3/577/28e2a357753505ae9a7eb40097e93dbf.png' },
+  { id: 8, 
+    name: 'Space Inviders',
+    description: 'ХЗ что за игра, не играл И да где моя примия босс?', 
+    link: '/inviders',
+    image: 'https://play-lh.googleusercontent.com/0goocG7RJZDZ41ShfBPl-h7ctwHKHjqzn4nSImyL8_RWyXqeYNKw-CdGAKhgPGZG5Es=w240-h480-rw'},
+  { id: 9, 
+    name: 'Ping Pong', 
+    description:'play ping pong with ai', 
+    link:'/pingpong',
+    image: 'https://cdn6.aptoide.com/imgs/8/0/7/807f37e41bb078de90a11c67a7857032_screen.png?w=245'},
+  { id: 10, 
+    name: 'meteors', 
+    description:'Try to survive in rain of meteors', 
+    link:'/meteors'}
 ];
 
 const Games = () => {
@@ -83,6 +77,7 @@ const Games = () => {
   const closeModal = () => {
     setSelectedGame(null);
   };
+
 
   return (
     <div className={s.container}>

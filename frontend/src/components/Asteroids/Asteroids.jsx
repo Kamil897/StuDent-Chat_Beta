@@ -59,15 +59,41 @@ const Doom = () => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
+    
+      // Основной корпус
       ctx.beginPath();
-      ctx.moveTo(size, 10);
-      ctx.lineTo(-size, size / 2);
-      ctx.lineTo(-size, -size / 2);
+      ctx.moveTo(size, 0); // Нос
+      ctx.lineTo(-size, size / 2); // Нижняя задняя часть
+      ctx.lineTo(-size, -size / 2); // Верхняя задняя часть
       ctx.closePath();
+      ctx.fillStyle = 'white';
+      ctx.fill();
       ctx.strokeStyle = shipColor;
       ctx.stroke();
+    
+      // Крылья
+      ctx.beginPath();
+      ctx.moveTo(-size / 2, -size); // Верхнее крыло
+      ctx.lineTo(0, 0);
+      ctx.lineTo(-size / 2, size); // Нижнее крыло
+      ctx.closePath();
+      ctx.fillStyle = 'gray';
+      ctx.fill();
+      ctx.stroke();
+    
+      // Хвостик
+      ctx.beginPath();
+      ctx.moveTo(-size, -size / 4);
+      ctx.lineTo(-size - size / 2, 0);
+      ctx.lineTo(-size, size / 4);
+      ctx.closePath();
+      ctx.fillStyle = 'red';
+      ctx.fill();
+      ctx.stroke();
+    
       ctx.restore();
     };
+    
 
     const drawAsteroid = (asteroid) => {
       const { x, y, size, angle } = asteroid;
