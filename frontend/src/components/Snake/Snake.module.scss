@@ -3,43 +3,117 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 100vh;
-  background: radial-gradient(circle, #1a1a1a, #000);
-  color: #fff;
-  font-family: Arial, sans-serif;
-  margin: 0;
+  background-color: #1a1a2e;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  
+  h1 {
+    margin-bottom: 24px;
+    font-size: 2.5rem;
+    color: #4ecca3;
+    text-align: center;
+  }
+  
+  p {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+    color: #eeeeee;
+    text-align: center;
+  }
+  
+  button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4ecca3;
+    color: #1a1a2e;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #3aa183;
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.instructions {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  
+  p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #cccccc;
+  }
 }
 
 .infoBar {
   display: flex;
   justify-content: space-between;
-  width: 600px;
-  margin-bottom: 10px;
-}
-
-.score, .timer {
-  font-size: 18px;
-}
-
-.menuButton {
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #444;
-  color: #fff;
-  transition: background 0.3s;
-}
-
-.menuButton:hover {
-  background-color: #666;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  
+  .score, .timer {
+    font-size: 1.2rem;
+    color: #4ecca3;
+    margin: 0;
+  }
+  
+  .menuButton {
+    padding: 8px 12px;
+    background-color: #e84545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #c23535;
+    }
+  }
 }
 
 .board {
   position: relative;
-  background-color: #111;
-  border: 2px solid #fff;
+  border: 2px solid #4ecca3;
+  border-radius: 4px;
+  background-color: #16213e;
+  box-shadow: 0 0 20px rgba(78, 204, 163, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .row {
@@ -49,47 +123,211 @@
 .cell {
   width: 20px;
   height: 20px;
-  border: 1px solid #333;
+  border-right: 1px solid rgba(78, 204, 163, 0.1);
+  border-bottom: 1px solid rgba(78, 204, 163, 0.1);
 }
 
 .snake {
   position: absolute;
   width: 20px;
   height: 20px;
-  z-index: 2;
+  border-radius: 3px;
+  transition: left 0.1s linear, top 0.1s linear;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
 .food {
   position: absolute;
   width: 20px;
   height: 20px;
-  z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
 }
 
-.menu {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  border-radius: 10px;
+.mobileControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
 }
 
-.menu h1 {
-  margin: 10px 0;
+.controlsRow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.menu button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 16px;
+.directionButton {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 50%;
+  background-color: rgba(78, 204, 163, 0.6);
+  color: white;
   border: none;
-  border-radius: 5px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
   cursor: pointer;
-  background-color: #444;
-  color: #fff;
-  transition: background 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s;
+  
+  &:active {
+    background-color: rgba(78, 204, 163, 0.9);
+  }
 }
 
-.menu button:hover {
-  background-color: #666;
+.spacer {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  
+  .board {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+  
+  .infoBar {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    
+    .score, .timer {
+      font-size: 1rem;
+    }
+  }
+  
+  .directionButton {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .spacer {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu h1 {
+    font-size: 2rem;
+  }
+  
+  .board {
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+  
+  .infoBar {
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .score, .timer {
+      margin: 5px 10px;
+      font-size: 0.9rem;
+    }
+    
+    .menuButton {
+      margin-top: 5px;
+      padding: 6px 10px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .directionButton {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    margin: 3px;
+  }
+  
+  .spacer {
+    width: 45px;
+    height: 45px;
+    margin: 3px;
+  }
+}
+
+@media (max-width: 360px) {
+  .board {
+    transform: scale(0.6);
+    transform-origin: top center;
+  }
+  
+  .infoBar {
+    padding: 5px;
+  }
+  
+  .directionButton {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .spacer {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .app {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  
+  .board {
+    transform: scale(0.65);
+    margin-right: 20px;
+  }
+  
+  .mobileControls {
+    margin-top: 0;
+  }
+  
+  .infoBar {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+}
+
+@media (min-width: 1200px) {
+  .board {
+    transform: scale(1.1);
+  }
+  
+  .mobileControls {
+    display: none; 
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .snake, .food {
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .snake {
+    transition: none;
+  }
+  
+  .directionButton, .menuButton {
+    &:active {
+      transform: none;
+    }
+  }
 }

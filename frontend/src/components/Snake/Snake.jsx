@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styles from './Snake.module.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,6 +29,8 @@ function Snake() {
     foodShape: 'circle',
   });
   const timerRef = useRef(null);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+  const boardRef = useRef(null);
 
   useEffect(() => {
     const preventScroll = (e) => {
@@ -118,6 +120,48 @@ function Snake() {
     clearInterval(timerRef.current);
   };
 
+  // Touch gesture handlers
+  const handleTouchStart = useCallback((e) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }, []);
+
+  const handleTouchMove = useCallback((e) => {
+    if (!isGameStarted) return;
+    
+    e.preventDefault();
+    const touch = e.touches[0];
+    const diffX = touch.clientX - touchStartRef.current.x;
+    const diffY = touch.clientY - touchStartRef.current.y;
+    
+    // Determine if the swipe is primarily horizontal or vertical
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      // Horizontal swipe
+      if (diffX > 20 && direction !== 'w') {
+        setDirection('e'); // Right
+      } else if (diffX < -20 && direction !== 'e') {
+        setDirection('w'); // Left
+      }
+    } else {
+      // Vertical swipe
+      if (diffY > 20 && direction !== 'n') {
+        setDirection('s'); // Down
+      } else if (diffY < -20 && direction !== 's') {
+        setDirection('n'); // Up
+      }
+    }
+    
+    // Update touch start for continuous movement
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }, [direction, isGameStarted]);
+
+  // Direction button handlers
+  const handleDirectionButtonClick = useCallback((newDirection) => {
+    if (isGameStarted && newDirection !== getOppositeDirection(direction)) {
+      setDirection(newDirection);
+    }
+  }, [direction, isGameStarted]);
+
   return (
     <div className={styles.app}>
       {!isGameStarted && !isGameOver ? (
@@ -126,6 +170,10 @@ function Snake() {
           <button onClick={() => setIsGameStarted(true)}>Play</button>
           <button onClick={openSettings}>Settings</button>
           <button onClick={() => navigate("/Games")}>Exit</button>
+          <div className={styles.instructions}>
+            <p>Mobile: Use on-screen arrows or swipe to control</p>
+            <p>Desktop: Use arrow keys or WASD to control</p>
+          </div>
         </div>
       ) : isGameOver ? (
         <div className={styles.menu}>
@@ -142,7 +190,13 @@ function Snake() {
             <h1 className={styles.timer}>Time Left: {timeLeft}s</h1>
             <button className={styles.menuButton} onClick={resetGame}>Menu</button>
           </div>
-          <div className={styles.board} style={{ width: `${COLS * TILE_SIZE}px`, height: `${ROWS * TILE_SIZE}px` }}>
+          <div 
+            ref={boardRef}
+            className={styles.board} 
+            style={{ width: `${COLS * TILE_SIZE}px`, height: `${ROWS * TILE_SIZE}px` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+          >
             {Array.from({ length: ROWS }).map((_, y) => (
               <div key={y} className={styles.row}>
                 {Array.from({ length: COLS }).map((_, x) => (
@@ -170,6 +224,41 @@ function Snake() {
                 borderRadius: settings.foodShape === 'circle' ? '50%' : '0',
               }}
             ></div>
+          </div>
+          
+          {/* Mobile touch controls */}
+          <div className={styles.mobileControls}>
+            <div className={styles.controlsRow}>
+              <button 
+                className={styles.directionButton}
+                onClick={() => handleDirectionButtonClick('n')}
+              >
+                ↑
+              </button>
+            </div>
+            <div className={styles.controlsRow}>
+              <button 
+                className={styles.directionButton}
+                onClick={() => handleDirectionButtonClick('w')}
+              >
+                ←
+              </button>
+              <div className={styles.spacer}></div>
+              <button 
+                className={styles.directionButton}
+                onClick={() => handleDirectionButtonClick('e')}
+              >
+                →
+              </button>
+            </div>
+            <div className={styles.controlsRow}>
+              <button 
+                className={styles.directionButton}
+                onClick={() => handleDirectionButtonClick('s')}
+              >
+                ↓
+              </button>
+            </div>
           </div>
         </>
       )}

@@ -12,8 +12,8 @@ const Tir = () => {
   const intervalRef = useRef(null);
 
   const targetImages = [
-    'url(/6_normal.png)', 
-    'url(/5_normal.png)', 
+    'url(/4_normal.png)', 
+    'url(/4_normal.png)', 
     'url(/4_normal.png)'
   ];
 
