@@ -15,7 +15,7 @@
 }
 
 .card__text {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .inner {
@@ -57,3 +57,242 @@
   background-color: #1e1e1e;
   transform: rotateY(180deg);
 }
+
+
+
+.socialsBtn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+.modalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.modal {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: black;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+
+  a {
+    color: #333;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #3498db;
+    }
+  }
+}
+
+.closeBtn {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #c0392b;
+  }
+}
+
+
+// 2 ВАРИАНТ
+
+// .card {
+//   position: relative;
+//   width: 300px;
+//   height: 420px;
+//   perspective: 1000px;
+//   margin: 20px auto;
+// }
+
+// .inner {
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   transition: transform 0.6s;
+//   transform-style: preserve-3d;
+// }
+
+// .front, .back {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   backface-visibility: hidden;
+//   background: #292929;
+//   border-radius: 20px;
+//   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+//   overflow: hidden;
+//   padding: 20px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+// .front {
+//   z-index: 2;
+// }
+
+// .back {
+//   transform: rotateY(180deg);
+// }
+
+// .teacher__img__div {
+//   width: 120px;
+//   height: 120px;
+//   border-radius: 50%;
+//   overflow: hidden;
+//   margin-bottom: 15px;
+// }
+
+// .teacher__img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .teacher__name {
+//   font-size: 1.4rem;
+//   font-weight: 600;
+//   margin-bottom: 10px;
+//   text-align: center;
+// }
+
+// .teacher__card__text {
+//   text-align: center;
+
+//   h4 {
+//     font-size: 1rem;
+//     margin: 10px 0;
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     justify-content: center;
+//   }
+// }
+
+// .card__text {
+//   font-size: 0.9rem;
+//   margin-top: 15px;
+// }
+
+// .socialsBtn {
+//   margin-top: 10px;
+//   padding: 8px 14px;
+//   border: none;
+//   background-color: #3498db;
+//   color: white;
+//   border-radius: 8px;
+//   font-size: 0.95rem;
+//   cursor: pointer;
+//   transition: background 0.3s;
+
+//   &:hover {
+//     background-color: #2980b9;
+//   }
+// }
+
+// .modalOverlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   backdrop-filter: blur(5px);
+//   background-color: rgba(0, 0, 0, 0.4);
+//   z-index: 999;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 20px;
+// }
+
+// .modal {
+//   background: white;
+//   padding: 20px 25px;
+//   border-radius: 16px;
+//   width: 90%;
+//   max-width: 250px;
+//   text-align: center;
+//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+//   h2 {
+//     font-size: 1.1rem;
+//     margin-bottom: 15px;
+//     color: black;
+//   }
+// }
+
+// .socialIcons {
+//   display: flex;
+//   justify-content: center;
+//   gap: 20px;
+//   font-size: 1.6rem;
+//   margin-bottom: 15px;
+
+//   a {
+//     color: #333;
+//     transition: color 0.3s;
+
+//     &:hover {
+//       color: #3498db;
+//     }
+//   }
+// }
+
+// .closeBtn {
+//   background: #e74c3c;
+//   border: none;
+//   color: white;
+//   padding: 6px 14px;
+//   font-size: 0.9rem;
+//   border-radius: 6px;
+//   cursor: pointer;
+
+//   &:hover {
+//     background: #c0392b;
+//   }
+// }

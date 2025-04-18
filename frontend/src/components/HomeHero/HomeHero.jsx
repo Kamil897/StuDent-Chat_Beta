@@ -108,9 +108,9 @@ const HomeHero = () => {
       <section className={s.welcome_section}>
         {/* <Clouds /> */}
         <h1>Student Chat</h1>
-        <h3>место помощи студентам.</h3>
+        <h3>место помощи - кому?</h3>
         <TextCursor
-  text="Sdct - целое будущее!"
+  text="студентам!"
   delay={0.01}
   spacing={200}
   followMouseDirection={true}
